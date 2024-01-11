@@ -1,23 +1,32 @@
 /*
-13. 翻轉一個字串
-輸入一個字串，你的函式能夠翻轉這個字串。
+12. 找到目標數字所在的多個索引位置
+輸入一個整數陣列 / 列表和要找的目標數字，你的函式能找到並回傳目標數字所在的零到多個索引位置。
 
-輸入範例一：Hello
-回傳：olleH
+回傳包含多個索引位置的陣列 / 列表，由小到大排列，若目標數字不存在於陣列 / 列表中，回傳空陣列 / 空列表。
 
-輸入範例二：abcd
-回傳：dcba
+輸入範例一：[3, 2, 1, 5, 10]、目標數字 1
+回傳：[2]
 
-輸入範例一：Good Job
-回傳：boJ dooG
+輸入範例二：[5, 2, 3]、目標數字 4
+回傳：[]
 
-    @param s:{String}
-    @return :{String}
+輸入範例一：[-5, 2, -5, 1, -5]，目標數字 -5
+回傳：[0, 2, 4]
+
+    @param nums:{[Integer]}
+    @param target:{Integer}
+    @return :{[Integer]}
 */
-function reverseString(s) {
-  return s.split("").reverse().join(""); // 分離，反轉 再 合併
+function findIndexes(nums, target) {
+  let targetArray = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target) {
+      targetArray.push(i);
+    }
+  }
+  return targetArray;
 }
 
-console.log(reverseString("Hello"));
-console.log(reverseString("abcd"));
-console.log(reverseString("Good Job"));
+console.log(findIndexes([3, 2, 1, 5, 10], 1));
+console.log(findIndexes([5, 2, 3], 4));
+console.log(findIndexes([-5, 2, -5, 1, -5], -5));

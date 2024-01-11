@@ -20,12 +20,18 @@
     @return :{Boolean}
 */
 function checkPalindrome(s) {
+  if (s.length === 0) {
+    return true;
+  }
 
-  const reverseS =  s.toReversed();
-  // for (let i = 0; i < s.length; i++) { 
-  //   console.log(s[i], s[i]);
-  // }
+  let sArray = s.split("");
+
+  return sArray.every(
+    (char, index) => char === sArray[sArray.length - 1 - index]
+  );
 }
 
-
-checkPalindrome("abccba")
+console.log(checkPalindrome("abccba"));
+console.log(checkPalindrome(""));
+console.log(checkPalindrome("aba"));
+console.log(checkPalindrome("aaaccc"));
