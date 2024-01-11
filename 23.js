@@ -30,4 +30,4 @@ function convertSeconds(sec) {
 console.log(convertSeconds(0));
 console.log(convertSeconds(65));
 console.log(convertSeconds(7500));
-console.log(convertSeconds(10000));
+console.log(convertSeconds(100000));
