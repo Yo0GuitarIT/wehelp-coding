@@ -15,9 +15,21 @@
     @return :{Integer}
 */
 function findSecond(nums) {
-  const sorted = nums.sort((a, b) => a - b);
+  let newList = [];
+  let sortedNums = nums.sort((a, b) => a - b);
 
-  return sorted[sorted.length - 2];
+  sortedNums.forEach(element => {
+    let count = (sortedNums.filter(event => event === element)).length;
+    if (count > 1) {
+      sortedNums.splice(sortedNums.indexOf(element), 1);
+    }
+  })
+
+  sortedNums.forEach((element) => {
+    newList.push(element);
+  });
+
+  return newList[newList.length - 2];
 }
 
 console.log(findSecond([1, 3, 3, 2, 5, -2]));
