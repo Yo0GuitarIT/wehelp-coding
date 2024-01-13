@@ -18,7 +18,6 @@
 */
 
 
-
 function getOverlappingRange(range1, range2) {
   const rangeMax = Math.min(range1[1], range2[1]);
   const rangeMin = Math.max(range1[0], range2[0]);
@@ -27,16 +26,12 @@ function getOverlappingRange(range1, range2) {
   if (rangeMax === rangeMin) {
     repeatNumber = [rangeMin, rangeMax];
   }else if (rangeMax >= rangeMin) {
-    for (let i = rangeMin; i <= rangeMax; i++) {
-      repeatNumber.push(i);
-    }
+    repeatNumber = [rangeMin, rangeMax];
   } else {
     repeatNumber = [];
   }
-
   return repeatNumber;
 }
-
 
 console.log(getOverlappingRange([5, 10], [9, 11]));
 console.log(getOverlappingRange([-5, 5], [8, 10]));
