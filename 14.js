@@ -16,10 +16,17 @@
 */
 function findMaxProduct(nums) {
   const numSorted = [...nums].sort((a, b) => a - b);
+  console.log(numSorted);
 
-  const maxValue = (numSorted[numSorted.length - 1]) * (numSorted[numSorted.length - 2])
+  const maxPosValue =
+    numSorted[numSorted.length - 1] * numSorted[numSorted.length - 2];
 
-  return maxValue;
+  const maxNegValue = numSorted[0] * numSorted[1];
+
+  if (maxPosValue > maxNegValue) {
+    return maxPosValue;
+  }
+  return maxNegValue;
 }
 
 console.log(findMaxProduct([2, -1, 0]));
