@@ -17,32 +17,43 @@
     @param name:{String}
     @return :{String}
 */
+// function upperCamelToSnake(name) {
+//   let sliceKey = [];
+
+//   for (let i = 0; i < name.length; i++) {
+//     if (name[i] === name[i].toUpperCase()) {
+//       sliceKey.push(i);
+//     }
+//   }
+
+//   if (sliceKey.length === 0) {
+//     return name.toLowerCase();
+//   } else {
+//     let sliceWords = [];
+//     for (let i = 0; i < sliceKey.length - 1; i++) {
+//       sliceWords.push(name.slice(sliceKey[i], sliceKey[i + 1]));
+//     }
+//     sliceWords.push(name.slice(sliceKey[sliceKey.length - 1]));
+
+//     const lowerWords = sliceWords.map((element) => element.toLowerCase());
+//     const joinWords = lowerWords.join("_");
+
+//     return joinWords;
+//   }
+// }
+
 function upperCamelToSnake(name) {
-  let sliceKey = [];
+  let result = "";
   for (let i = 0; i < name.length; i++) {
-    if (name[i] === name[i].toUpperCase()) {
-      sliceKey.push(i);
+    if ((name[i] === name[i].toUpperCase() || !isNaN(name[i])) && i !== 0) {
+      result += "_";
     }
+    result += name[i].toLowerCase();
   }
-
-  if (sliceKey.length === 1) {
-    return name.toLowerCase()
-  } else {
-    let sliceWords = [];
-    for (let i = 0; i < sliceKey.length - 1; i++) {
-      sliceWords.push(name.slice(sliceKey[i], sliceKey[i + 1]));
-    }
-    sliceWords.push(name.slice(sliceKey[sliceKey.length - 1]));
-
-    const lowerWords = sliceWords.map(element => element.toLowerCase());
-    const joinWords = lowerWords.join("_")
-
-    return joinWords;
-  }
+  return result;
 }
 
 console.log(upperCamelToSnake("Test"));
 console.log(upperCamelToSnake("HelloWorld"));
 console.log(upperCamelToSnake("GetWeatherData"));
-
-
+console.log(upperCamelToSnake("APIResponse"));

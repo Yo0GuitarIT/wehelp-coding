@@ -17,26 +17,16 @@
     @param prompt:{String}
     @return :{[String]}
 */
-// function suggestKeywords(candidates, prompt) {
-//   let isChoosed = [];
-//   candidates.forEach((word) => {
-//     if (word.includes(prompt)) {
-//       isChoosed.push(word);
-//     }
-//   });
-
-//   isChoosed.sort((a, b) => a.localeCompare(b));
-//   isChoosed.sort((a, b) => a.length - b.length);
-
-//   return isChoosed;
-// }
 
 function suggestKeywords(candidates, prompt) {
-  const isChoosed = candidates.filter(word => word.includes(prompt));
+  let isChoosed = [];
+  candidates.forEach((word) => {
+    if (word.slice(0, prompt.length) === prompt) {
+      isChoosed.push(word);
+    }
+  });
 
-  isChoosed.sort((a, b) => a.length - b.length || a.localeCompare(b));
-
-  return isChoosed;
+  return isChoosed.sort((a, b) => a.length - b.length || a.localeCompare(b));
 }
 
 console.log(suggestKeywords(["abc", "xyz", "zzz", "ac", "aa"], "a"));
