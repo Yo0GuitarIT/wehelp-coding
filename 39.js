@@ -14,18 +14,32 @@
     @param ns:{[Integer]}
     @return :{[Integer]}
 */
+// function removeDuplicates(ns) {
+//   let data = [];
+
+//   ns.forEach((element) => {
+//     let duplicate = false;
+//     data.forEach((item) => {
+//       if (element === item) {
+//         duplicate = true;
+//       }
+//     });
+
+//     if (duplicate === false) {
+//       data.push(element);
+//     }
+//   });
+
+//   return data;
+// }
+
 function removeDuplicates(ns) {
   let data = [];
-
+  //建立一個新的data陣列存取不重複的數字
   ns.forEach((element) => {
-    let duplicate = false;
-    data.forEach((item) => {
-      if (element === item) {
-        duplicate = true;
-      }
-    });
-
-    if (duplicate === false) {
+    //ns中每一個元素是否和data裡的元素重複，如果沒有即放入data之中
+    let duplicate = data.some((e) => e === element);
+    if (!duplicate) {
       data.push(element);
     }
   });
